@@ -44,7 +44,25 @@ async function elerhetoseg() {
     }
 }
 
+async function osszsuly() {
+    let response = await fetch('./users.json');
+    let eredmeny = await response.json();
+    let adatok = eredmeny.users;
+    let sumWeight=0;
+    let outputKiiras = document.getElementById('sumWeightOutput');
+    let magassag = document.getElementById('magassagInput').value;
+    for (let u of adatok) {
+        if (u.height>=magassag){
+            sumWeight=sumWeight+u.weight;
+        }
+    }
+    let p = document.createElement('p');
+    p.innerHTML= sumWeight;
+    outputKiiras.appendChild(p);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('usersButton').addEventListener('click', () => { osszesNev() });
-    document.getElementById('tableButton').addEventListener('click',() => {elerhetoseg()});
+    document.getElementById('tableButton').addEventListener('click', () => { elerhetoseg() });
+    document.getElementById('sumWeightButton').addEventListener('click', () => { osszsuly() })
 })
