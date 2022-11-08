@@ -57,7 +57,7 @@ async function osszsuly() {
         }
     }
     let p = document.createElement('p');
-    p.innerHTML= sumWeight;
+    p.innerHTML= sumWeight+ ' kg';
     outputKiiras.appendChild(p);
 }
 
