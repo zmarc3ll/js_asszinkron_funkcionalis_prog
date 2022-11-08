@@ -22,8 +22,8 @@ async function elerhetoseg() {
     let response = await fetch('./users.json');
     let eredmeny = await response.json();
     let adatok = eredmeny.users.sort(function (a, b) {
-        if (a.firstName < b.firstName) { return -1; }
-        if (a.firstName > b.firstName) { return 1; }
+        if (a.username < b.username) { return -1; }
+        if (a.username > b.username) { return 1; }
         return 0;
     });
     let adatokTablazat = document.getElementById('adatTablazat');
