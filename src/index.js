@@ -61,8 +61,25 @@ async function osszsuly() {
     outputKiiras.appendChild(p);
 }
 
+async function brownEyes() {
+    let response = await fetch('./users.json');
+    let eredmeny = await response.json();
+    let adatok = eredmeny.users;
+    let brownEyeCount = 0;
+    let brownEyeOutput = document.getElementById('brownEyeOutput');
+    for (let u of adatok) {
+        if (u.eyeColor='Brown') {
+            brownEyeCount++;
+        }   
+    } 
+    let p = document.createElement('p');
+    p.innerHTML=brownEyeCount+ ' db';
+    brownEyeOutput.appendChild(p);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('usersButton').addEventListener('click', () => { osszesNev() });
     document.getElementById('tableButton').addEventListener('click', () => { elerhetoseg() });
-    document.getElementById('sumWeightButton').addEventListener('click', () => { osszsuly() })
+    document.getElementById('sumWeightButton').addEventListener('click', () => { osszsuly() });
+    document.getElementById('brownEye').addEventListener('click',() => {brownEyes() });
 })
